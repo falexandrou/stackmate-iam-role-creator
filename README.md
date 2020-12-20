@@ -28,26 +28,10 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`stackmate hello`](#stackmate-hello)
 * [`stackmate help [COMMAND]`](#stackmate-help-command)
-
-## `stackmate hello`
-
-Describe the command here
-
-```
-USAGE
-  $ stackmate hello
-
-OPTIONS
-  -n, --name=name  name to print
-
-DESCRIPTION
-  ...
-  Extra documentation goes here
-```
-
-_See code: [src/commands/hello.js](https://github.com/falexandrou/stackmate-cli/blob/v0.1.0/src/commands/hello.js)_
+* [`stackmate init`](#stackmate-init)
+* [`stackmate login`](#stackmate-login)
+* [`stackmate role`](#stackmate-role)
 
 ## `stackmate help [COMMAND]`
 
@@ -65,4 +49,43 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.1/src/commands/help.ts)_
+
+## `stackmate init`
+
+initialize a project in stackmate.io
+
+```
+USAGE
+  $ stackmate init
+```
+
+_See code: [src/commands/init.js](https://github.com/falexandrou/stackmate-cli/blob/v0.1.0/src/commands/init.js)_
+
+## `stackmate login`
+
+log in to stackmate.io
+
+```
+USAGE
+  $ stackmate login
+
+OPTIONS
+  -n, --name=name  name to print
+```
+
+_See code: [src/commands/login.js](https://github.com/falexandrou/stackmate-cli/blob/v0.1.0/src/commands/login.js)_
+
+## `stackmate role`
+
+adds an AWS role to stackmate.io
+
+```
+USAGE
+  $ stackmate role
+
+OPTIONS
+  -p, --profile=profile  The AWS profile to use
+```
+
+_See code: [src/commands/role.js](https://github.com/falexandrou/stackmate-cli/blob/v0.1.0/src/commands/role.js)_
 <!-- commandsstop -->

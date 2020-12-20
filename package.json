@@ -8,6 +8,8 @@
   },
   "bugs": "https://github.com/falexandrou/stackmate-cli/issues",
   "dependencies": {
+    "@aws-sdk/client-iam": "^3.0.0",
+    "@aws-sdk/shared-ini-file-loader": "^3.0.0",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3"
