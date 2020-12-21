@@ -15,11 +15,16 @@
     "@oclif/plugin-help": "^3"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/eslint-parser": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
     "@oclif/dev-cli": "^1",
     "@oclif/test": "^1",
     "chai": "^4",
     "eslint": "^5.13",
-    "eslint-config-oclif": "^3.1",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-chai-friendly": "^0.6.0",
+    "eslint-plugin-import": "^2.22.1",
     "globby": "^10",
     "mocha": "^5",
     "nyc": "^14"
