@@ -2,8 +2,8 @@ const { Command, flags } = require('@oclif/command');
 
 class LoginCommand extends Command {
   async run() {
-    const { flags } = this.parse(LoginCommand);
-    const name = flags.name || 'world';
+    const { flags: usedFlags } = this.parse(LoginCommand);
+    const name = usedFlags.name || 'world';
     this.log(`hello ${name} from ./src/commands/hello.js`);
   }
 }
