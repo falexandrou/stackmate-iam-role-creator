@@ -12,7 +12,14 @@
     "@aws-sdk/shared-ini-file-loader": "^3.0.0",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
-    "@oclif/plugin-help": "^3"
+    "@oclif/plugin-help": "^3",
+    "axios": "^0.21.1",
+    "chalk": "^4.1.0",
+    "cli-ux": "^5.5.1",
+    "inquirer": "^7.3.3",
+    "lodash.frompairs": "^4.0.1",
+    "lodash.isempty": "^4.4.0",
+    "lodash.topairs": "^4.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -54,9 +61,9 @@
   },
   "repository": "falexandrou/stackmate-cli",
   "scripts": {
-    "postpack": "rm -f oclif.manifest.json",
-    "posttest": "eslint .",
     "lint": "eslint .",
+    "postpack": "rm -f oclif.manifest.json",
+    "posttest": "npm run lint",
     "prepack": "oclif-dev manifest && oclif-dev readme",
     "test": "nyc mocha --forbid-only \"test/**/*.test.js\"",
     "version": "oclif-dev readme && git add README.md"

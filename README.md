@@ -29,8 +29,6 @@ USAGE
 # Commands
 <!-- commands -->
 * [`stackmate help [COMMAND]`](#stackmate-help-command)
-* [`stackmate init`](#stackmate-init)
-* [`stackmate login`](#stackmate-login)
 * [`stackmate role`](#stackmate-role)
 
 ## `stackmate help [COMMAND]`
@@ -49,31 +47,6 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v3.2.1/src/commands/help.ts)_
-
-## `stackmate init`
-
-initialize a project in stackmate.io
-
-```
-USAGE
-  $ stackmate init
-```
-
-_See code: [src/commands/init.js](https://github.com/falexandrou/stackmate-cli/blob/v0.1.0/src/commands/init.js)_
-
-## `stackmate login`
-
-log in to stackmate.io
-
-```
-USAGE
-  $ stackmate login
-
-OPTIONS
-  -n, --name=name  name to print
-```
-
-_See code: [src/commands/login.js](https://github.com/falexandrou/stackmate-cli/blob/v0.1.0/src/commands/login.js)_
 
 ## `stackmate role`
 
