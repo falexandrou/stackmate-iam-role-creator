@@ -20,11 +20,11 @@ class ApiClientClass {
    * @returns {Promise<Array>}
    */
   async getIamPermissions() {
-    const permissions = await this._request(
+    const permissionsResponse = await this._request(
       getAwsPermissionsUrl(), METHOD.GET,
     );
 
-    return permissions;
+    return permissionsResponse;
   }
 
   /**
