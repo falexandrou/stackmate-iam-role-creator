@@ -8,6 +8,7 @@ const AWS = require('@aws-sdk/client-iam');
 const inquirer = require('inquirer');
 const { cli } = require('cli-ux');
 const { api } = require('../api');
+const { config } = require('../config');
 
 const AWS_API_VERSION = '2010-05-08';
 
@@ -86,9 +87,10 @@ class RoleCommand extends Command {
     cli.action.start(`Creating IAM role ${roleName}`);
     let updated = false;
     let roleArn;
+    let roleId;
 
     try {
-      ({ Role: { Arn: roleArn } } = await client.createRole({
+      ({ Role: { Arn: roleArn, RoleId: roleId } } = await client.createRole({
         RoleName: awsRoleName,
         AssumeRolePolicyDocument: JSON.stringify(assumeRolePolicy),
         Path: '/',
@@ -129,6 +131,8 @@ class RoleCommand extends Command {
         'If not, please remove this role from the AWS console and re-run this operation',
       );
     }
+
+    config.storeRole(roleArn, externalId, roleId, awsRoleName);
 
     this.log('Role ARN', chalk.bold(roleArn));
     this.log('External ID', chalk.bold(externalId));
