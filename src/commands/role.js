@@ -60,7 +60,7 @@ class RoleCommand extends Command {
   async createIamRole(accessKeyId, secretAccessKey) {
     const {
       external_id: externalId,
-      seesion_duration: sessionDuration,
+      session_duration: sessionDuration,
       assume_role_policy: assumeRolePolicy,
       inline_policy: inlinePolicy,
       settings_url: settingsUrl,
