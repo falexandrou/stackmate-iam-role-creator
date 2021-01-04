@@ -144,7 +144,9 @@ class RoleCommand extends Command {
 
     await cli.anykey();
 
-    return cli.open(`${settingsUrl}?arn=${roleArn}&externalId=${externalId}&title=${awsRoleName}`);
+    return cli.open(
+      `${settingsUrl}?arn=${roleArn}&externalId=${externalId}&title=${awsRoleName}&rolename=${awsRoleName}`,
+    );
   }
 
   /**
