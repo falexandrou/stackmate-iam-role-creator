@@ -3,8 +3,8 @@ const toPairs = require('lodash.topairs');
 const isEmpty = require('lodash.isempty');
 const chalk = require('chalk');
 const { Command, flags } = require('@oclif/command');
+const AWS = require('aws-sdk');
 const sharedIniFileLoader = require('@aws-sdk/shared-ini-file-loader');
-const AWS = require('@aws-sdk/client-iam');
 const inquirer = require('inquirer');
 const { cli } = require('cli-ux');
 const { api } = require('../api');
@@ -88,9 +88,8 @@ class RoleCommand extends Command {
     let updated = false;
     let roleArn;
     let roleId;
-
-    try {
-      ({ Role: { Arn: roleArn, RoleId: roleId } } = await client.createRole({
+    await new Promise((resolve, reject) => {
+      client.createRole({
         RoleName: awsRoleName,
         AssumeRolePolicyDocument: JSON.stringify(assumeRolePolicy),
         Path: '/',
@@ -100,26 +99,48 @@ class RoleCommand extends Command {
           Key: 'Name',
           Value: awsRoleName,
         }],
-      }));
-    } catch (err) {
-      if (err.name !== 'EntityAlreadyExists') {
-        throw err;
-      }
+      }, (err, data) => {
+        if (err) {
+          if (err.name !== 'EntityAlreadyExists') {
+            return reject(err);
+          }
 
-      // Role already exists
-      this.warn(`The role ${awsRoleName} already exists, will update the policy instead`);
-      updated = true;
-    }
+          this.warn(`The role ${awsRoleName} already exists, will update the policy instead`);
+          updated = true;
+        } else if (data) {
+          ({ Role: { Arn: roleArn, RoleId: roleId } } = data);
+        }
+
+        return resolve(data);
+      });
+    });
+
+    cli.action.stop(chalk.green('Done!'));
+
+    cli.action.start('Waiting for the role to become available in IAM');
+    await new Promise((resolve, reject) => {
+      client.waitFor('roleExists', { RoleName: awsRoleName }, (err, data) => (
+        err ? reject(err) : resolve(data)
+      ));
+    });
 
     cli.action.stop(chalk.green('Done!'));
 
     cli.action.start(`Attaching the Policy to the role ${roleName}`);
 
-    await client.putRolePolicy({
-      PolicyDocument: JSON.stringify(inlinePolicy),
-      PolicyName: awsPolicyName,
-      RoleName: awsRoleName,
+    await new Promise((resolve, reject) => {
+      client.putRolePolicy({
+        PolicyDocument: JSON.stringify(inlinePolicy),
+        PolicyName: awsPolicyName,
+        RoleName: awsRoleName,
+      }, (err, data) => (
+        err ? reject(err) : resolve(data)
+      ));
     });
+
+    // the policyExists waiter only supports looking up via an ARN which we don't know
+    // at this point. To avoid false positives, we’ll wait 3 seconds
+    await cli.wait(3000);
 
     cli.action.stop(chalk.green('Done!'));
 
