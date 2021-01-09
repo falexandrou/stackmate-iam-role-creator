@@ -71,9 +71,14 @@ class ConfigHandler {
       this._contents.roles = [];
     }
 
-    this._contents.roles.push({
-      arn, externalId, roleId, roleName,
-    });
+    const existing = this._contents.roles.find(r => r.arn === arn);
+    const roleAttrs = { arn, externalId, roleId, roleName };
+
+    if (existing) {
+      Object.assign(existing, roleAttrs);
+    } else {
+      this._contents.roles.push(roleAttrs);
+    }
 
     return this.save();
   }

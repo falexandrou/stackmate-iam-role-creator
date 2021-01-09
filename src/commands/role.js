@@ -127,8 +127,8 @@ class RoleCommand extends Command {
 
     if (updated) {
       return this.log(
-        'We assume that the role has already been integrated to Stackmate.io',
-        'If not, please remove this role from the AWS console and re-run this operation',
+        'We assume that the role has already been integrated to Stackmate.io so we only updated its policy',
+        'If the role is not found in Stackmate.io, please remove it from the AWS console and re-run this operation',
       );
     }
 
