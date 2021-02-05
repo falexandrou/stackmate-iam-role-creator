@@ -19,7 +19,7 @@ $ npm install -g stackmate
 $ stackmate COMMAND
 running command...
 $ stackmate (-v|--version|version)
-stackmate/0.1.0 darwin-x64 node-v12.16.2
+stackmate/1.0.0 darwin-x64 node-v12.16.2
 $ stackmate --help [COMMAND]
 USAGE
   $ stackmate COMMAND
@@ -60,5 +60,5 @@ OPTIONS
   -p, --profile=profile  The AWS profile to use
 ```
 
-_See code: [src/commands/role.js](https://github.com/falexandrou/stackmate-cli/blob/v0.1.0/src/commands/role.js)_
+_See code: [src/commands/role.js](https://github.com/falexandrou/stackmate-cli/blob/v1.0.0/src/commands/role.js)_
 <!-- commandsstop -->

@@ -1,7 +1,7 @@
 {
   "name": "stackmate",
   "description": "Command Line Interface to Stackmate.io",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "The Stackmate team",
   "bin": {
     "stackmate": "./bin/run"
