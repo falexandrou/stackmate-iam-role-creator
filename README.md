@@ -8,24 +8,6 @@ Command Line Interface to Stackmate.io
 [![Downloads/week](https://img.shields.io/npm/dw/stackmate.svg)](https://npmjs.org/package/stackmate)
 [![License](https://img.shields.io/npm/l/stackmate.svg)](https://github.com/falexandrou/stackmate-cli/blob/master/package.json)
 
-<!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
-<!-- tocstop -->
-# Usage
-<!-- usage -->
-```sh-session
-$ npm install -g stackmate
-$ stackmate COMMAND
-running command...
-$ stackmate (-v|--version|version)
-stackmate/1.0.0 darwin-x64 node-v12.16.2
-$ stackmate --help [COMMAND]
-USAGE
-  $ stackmate COMMAND
-...
-```
-<!-- usagestop -->
 # Commands
 <!-- commands -->
 * [`stackmate help [COMMAND]`](#stackmate-help-command)
