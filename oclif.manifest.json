@@ -1,1 +1,0 @@
-{"version":"0.1.0","commands":{"role":{"id":"role","description":"adds an AWS role to stackmate.io","pluginName":"stackmate","pluginType":"core","aliases":[],"flags":{"profile":{"name":"profile","type":"option","char":"p","description":"The AWS profile to use"}},"args":[]}}}
