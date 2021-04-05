@@ -1,12 +1,12 @@
 {
   "name": "stackmate",
   "description": "Command Line Interface to Stackmate.io",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "The Stackmate team",
   "bin": {
     "stackmate": "./bin/run"
   },
-  "bugs": "https://github.com/falexandrou/stackmate-cli/issues",
+  "bugs": "https://github.com/stackmate-io/stackmate-cli/issues",
   "dependencies": {
     "@aws-sdk/shared-ini-file-loader": "^3.1.0",
     "@oclif/command": "^1",
@@ -46,7 +46,7 @@
     "/oclif.manifest.json",
     "/src"
   ],
-  "homepage": "https://github.com/falexandrou/stackmate-cli",
+  "homepage": "https://github.com/stackmate-io/stackmate-cli",
   "keywords": [
     "oclif"
   ],
@@ -59,7 +59,7 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "falexandrou/stackmate-cli",
+  "repository": "stackmate-io/stackmate-cli",
   "scripts": {
     "lint": "eslint .",
     "postpack": "rm -f oclif.manifest.json",
