@@ -42,5 +42,5 @@ OPTIONS
   -p, --profile=profile  The AWS profile to use
 ```
 
-_See code: [src/commands/role.js](https://github.com/falexandrou/stackmate-cli/blob/v1.0.1/src/commands/role.js)_
+_See code: [src/commands/role.js](https://github.com/stackmate-io/stackmate-cli/blob/v1.0.2/src/commands/role.js)_
 <!-- commandsstop -->
