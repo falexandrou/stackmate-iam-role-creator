@@ -1,3 +1,6 @@
+![mate-highres](https://user-images.githubusercontent.com/301123/114623433-f0554380-9cb7-11eb-9702-19a2ea3ed927.png)
+
+
 stackmate
 =========
 
